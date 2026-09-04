@@ -11,7 +11,7 @@ A comparative study of two state-of-the-art object detection and instance segmen
 
 ---
 
-## 📌 Project Overview
+## Project Overview
 
 The core goal is to train, fine-tune, and benchmark two fundamentally different detection paradigms on a custom medical imaging dataset of **200 dental X-ray images** labeled with bounding boxes for the implant region.
 
@@ -22,19 +22,19 @@ The core goal is to train, fine-tune, and benchmark two fundamentally different 
 | **YOLO11** | Single-stage, anchor-free detector | Object detection (bounding box) |
 | **Mask R-CNN** | Two-stage, region proposal-based | Instance segmentation (bounding box + pixel mask) |
 
-> **Hardware used during training**: NVIDIA GeForce RTX 4060 Laptop GPU (8.59 GB VRAM)
+> Hardware used during training: NVIDIA GeForce RTX 4060 Laptop GPU (8.59 GB VRAM)
 
 ---
 
-## 📂 Repository Structure
+## Repository Structure
 
-```directory
+```
 implant-detection-yolo-mask-rcnn/
 │
 ├── data/
 │   ├── images/               # 200 raw dental X-ray images (input dataset)
 │   └── labels/
-│       └── bounding_boxes_yolo.txt   # YOLO-format annotations (class, cx, cy, w, h — normalized)
+│       └── bounding_boxes_yolo.txt   # YOLO-format annotations (class, cx, cy, w, h -- normalized)
 │
 ├── notebooks/
 │   ├── PF_C2_ClaudiaPaula.ipynb   # Main Python notebook: YOLO11 & Mask R-CNN training & evaluation
@@ -50,14 +50,14 @@ implant-detection-yolo-mask-rcnn/
 
 ---
 
-## 🧪 Methodology
+## Methodology
 
 ### Dataset
 - **200 dental periapical X-ray images** containing one or more visible implants.
 - **Single class**: `implant` (class index `0`).
 - **Annotation format**: YOLO normalized format — `<image_id> <class> <cx> <cy> <width> <height>`.
 
-### Pipeline (Notebook `PF_C2_ClaudiaPaula.ipynb`)
+### Pipeline (`notebooks/PF_C2_ClaudiaPaula.ipynb`)
 
 1. **Environment Setup**: Import libraries (`ultralytics`, `torchvision`, `albumentations`, `pycocotools`, `torchmetrics`), configure device.
 2. **Data Preparation**: Load images, parse YOLO annotations, apply data augmentation via `albumentations`.
@@ -68,7 +68,7 @@ implant-detection-yolo-mask-rcnn/
 
 ---
 
-## 🔬 Key Libraries & Dependencies
+## Key Libraries & Dependencies
 
 ```text
 torch / torchvision
@@ -89,7 +89,7 @@ pip install torch torchvision ultralytics albumentations pycocotools torchmetric
 
 ---
 
-## 🚀 How to Run
+## How to Run
 
 Open the main notebook and execute all cells sequentially:
 
@@ -97,12 +97,12 @@ Open the main notebook and execute all cells sequentially:
 jupyter notebook notebooks/PF_C2_ClaudiaPaula.ipynb
 ```
 
-> ⚠️ A GPU with ≥6 GB VRAM is recommended for training both models.  
+> A GPU with 6+ GB VRAM is recommended for training both models.
 > The notebook auto-detects `cuda`, `mps`, or `cpu` and configures accordingly.
 
 ---
 
-## 📊 Results Summary
+## Results Summary
 
 | | YOLO11 | Mask R-CNN |
 | :--- | :--- | :--- |
@@ -115,8 +115,8 @@ jupyter notebook notebooks/PF_C2_ClaudiaPaula.ipynb
 
 ---
 
-## 👥 Authors & License
+## Authors & License
 
-Developed by **Claudia Gallego & Paula Esteve** — January 2025.  
-Final project for an Advanced Computer Vision course.  
+Developed by **Claudia Gallego & Paula Esteve** — January 2025.
+Final project for an Advanced Computer Vision course.
 Distributed under the **MIT License**.
